@@ -2483,3 +2483,47 @@ footer .copyright span:last-child::after {
 }
 
 /*# sourceMappingURL=main.css.map */
+#projects {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.project-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 1000px; /* 根据需要调整 */
+}
+
+.project-item {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* 添加透明背景，确保文字可见 */
+    color: #333;
+    position: relative;
+    transition: background 0.3s ease-in-out;
+}
+
+.project-item:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.project-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.project-hover {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.project-item:hover .project-hover {
+    opacity: 1;
+}
