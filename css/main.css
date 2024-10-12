@@ -2482,49 +2482,152 @@ footer .copyright span:last-child::after {
 	background: #000000;
 }
 
-/*# sourceMappingURL=main.css.map */
-#projects {
-    padding: 60px 0;
-    text-align: center;
+.resume-header h2 {
+    color: #4a76de;
 }
 
-.project-slider {
+
+/*# sourceMappingURL=main.css.map */
+.project-container {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 1200px; /* Adjust max-width to match other sections */
+    margin: 0 auto; /* Centers the container */
+    padding: 20px;
     overflow: hidden;
-    margin: 0 auto;
-    max-width: 1000px; /* 根据需要调整 */
+    background-color: #151515;
+}
+
+.project-list-wrapper {
+    overflow-x: auto;
+    display: flex;
+    justify-content: flex-start;
+    max-width: 100%; /* This will now fit within the container's max-width */
+    scroll-behavior: smooth;
+    height: 300px;
+}
+
+.project-content {
+    display: flex;
+    gap: 20px;
 }
 
 .project-item {
-    width: 200px;
-    height: 200px;
+    position: relative;
+    flex-shrink: 0;
+    width: 250px;
+    height: 250px;
     margin: 10px;
-    padding: 20px;
+    padding: 0;
     text-align: center;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.8); /* 添加透明背景，确保文字可见 */
+    background-color: rgba(255, 255, 255, 0.8);
     color: #333;
-    position: relative;
     transition: background 0.3s ease-in-out;
+    overflow: hidden; /* Ensure content stays within bounds */
 }
 
-.project-item:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-}
-
-.project-title {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.project-hover {
-    opacity: 0;
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
     transition: opacity 0.3s ease-in-out;
 }
 
-.project-item:hover .project-hover {
-    opacity: 1;
+.project-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.8); /* White background */
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1;
 }
 
+.project-item:hover .project-image {
+    opacity: 0; /* Hide the image when hovered */
+}
+
+.project-item:hover .project-title {
+    opacity: 0; /* Hide the title when hovered */
+}
+
+.project-item:hover .project-hover {
+    opacity: 1; /* Show hover text */
+}
+.project-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(101, 89, 89, 0.8); /* Grey background */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+	transition: opacity 0.3s ease-in-out; /* Smooth fade effect */
+	border-radius: 10px; /* Match border radius with the project item */
+}
+
+.nav-left, .nav-right {
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    background-color: #0ec448;
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+}
+.project-hover {
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition */
+}
+
+.project-item:hover .project-hover {
+    opacity: 1; /* Show on hover */
+}
+.nav-left:hover, .nav-right:hover {
+    background-color: #15af22;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.nav-left {
+    left: -40px; /* You can adjust these values to position it properly */
+}
+
+.nav-right {
+    right: -40px; /* Adjust for positioning */
+}
+
+/* Optionally hide the default scrollbar */
+.project-list-wrapper {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #19974c transparent; /* Firefox */
+
+    /* For Chrome, Edge, and Safari */
+    &::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: #16c381;
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+}
